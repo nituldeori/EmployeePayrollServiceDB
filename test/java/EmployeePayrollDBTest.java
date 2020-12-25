@@ -31,7 +31,7 @@ public class EmployeePayrollDBTest {
         Assert.assertTrue(result);
     }
 
-    /*@Test
+    @Test
     public void givenDateRange_WhenRetrieved_ShouldMatchEmployeeCount() {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(DB_IO);
@@ -41,7 +41,7 @@ public class EmployeePayrollDBTest {
         Assert.assertEquals(5, employeePayrollData.size());
     }
 
-    @Test
+    /*@Test
     public void givenPayrollData_WhenAverageSalaryRetrievedByGender_ShouldReturnProperValue() {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(DB_IO);
