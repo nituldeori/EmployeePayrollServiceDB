@@ -41,7 +41,7 @@ public class EmployeePayrollDBTest {
         Assert.assertEquals(5, employeePayrollData.size());
     }
 
-    /*@Test
+    @Test
     public void givenPayrollData_WhenAverageSalaryRetrievedByGender_ShouldReturnProperValue() {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(DB_IO);
@@ -51,7 +51,7 @@ public class EmployeePayrollDBTest {
 
     }
 
-    @Test
+    /*@Test
     public void givenNewEmployee_WhenAdded_ShouldSyncWithDB(){
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(DB_IO);
