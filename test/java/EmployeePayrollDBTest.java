@@ -22,7 +22,7 @@ public class EmployeePayrollDBTest {
         Assert.assertEquals(6, employeePayrollData.size());
     }
 
-    /*@Test
+    @Test
     public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB() {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(DB_IO);
@@ -31,7 +31,7 @@ public class EmployeePayrollDBTest {
         Assert.assertTrue(result);
     }
 
-    @Test
+    /*@Test
     public void givenDateRange_WhenRetrieved_ShouldMatchEmployeeCount() {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(DB_IO);
