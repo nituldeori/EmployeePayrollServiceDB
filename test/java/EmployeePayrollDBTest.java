@@ -47,21 +47,15 @@ public class EmployeePayrollDBTest {
         employeePayrollService.readEmployeePayrollData(DB_IO);
         Map<String, Double> averageSalaryByGender = employeePayrollService.readAverageSalaryByGender(DB_IO);
         Assert.assertTrue(averageSalaryByGender.get("M").equals(2000000.00) && averageSalaryByGender.get("F").equals(3000000.00));
-
-
     }
 
-    /*@Test
+    @Test
     public void givenNewEmployee_WhenAdded_ShouldSyncWithDB(){
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         employeePayrollService.readEmployeePayrollData(DB_IO);
         employeePayrollService.addEmployeePayrollData("Mark", "Tech", 3000000.00,0, 0, 0 ,0 , LocalDate.now(),"M" );
         boolean result = employeePayrollService.checkEmployeePayrollInSymcWithDB("Mark");
         Assert.assertTrue(result);
-
-
-
-
     }
 
     @Test
@@ -83,6 +77,6 @@ public class EmployeePayrollDBTest {
         Instant threadStart = Instant.now();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(DB_IO);
         Assert.assertEquals(6, employeePayrollData.size());
-    }*/
+    }
 
 }
