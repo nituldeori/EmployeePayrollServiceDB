@@ -80,9 +80,11 @@ public class EmployeePayrollService {
 
     public void addEmployeesToPayroll(List<EmployeePayrollData> employeePayrollDataList) {
         employeePayrollDataList.forEach(employeePayrollData -> {
-            System.out.println("Employee Being Added: "+employeePayrollData.name);
+            //System.out.println("Employee Being Added: "+employeePayrollData.name);
             this.addEmployeeToPayroll(employeePayrollData.name, employeePayrollData.department,  employeePayrollData.basic_pay, employeePayrollData.deductions, employeePayrollData.taxable_pay, employeePayrollData.tax, employeePayrollData.net_pay, employeePayrollData.startDate, employeePayrollData.gender);
+            //System.out.println("Employee Added: "+employeePayrollData.name);
         });
+        //System.out.println(this.employeePayrollList);
     }
 
     public void addEmployeesToPayrollWithThreads(List<EmployeePayrollData> employeePayrollDataList){
@@ -126,13 +128,9 @@ public class EmployeePayrollService {
     }
 
     public long countEntries(IOService ioService) {
-        long count=0;
-        if(ioService.equals(IOService.FILE_IO)){
-            count=new EmployeePayrollFileIOService().countEntries();
-            System.out.println("Number of entries "+count);
+        if(ioService.equals(IOService.FILE_IO))
             return new EmployeePayrollFileIOService().countEntries();
-        }
-        return 0;
+        return employeePayrollList.size();
     }
 
     public List<EmployeePayrollData> readEmployeePayrollforDateRange(IOService ioService, LocalDate startDate, LocalDate endDate) {
