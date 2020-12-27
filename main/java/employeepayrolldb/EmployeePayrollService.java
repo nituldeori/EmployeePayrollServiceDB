@@ -80,11 +80,11 @@ public class EmployeePayrollService {
 
     public void addEmployeesToPayroll(List<EmployeePayrollData> employeePayrollDataList) {
         employeePayrollDataList.forEach(employeePayrollData -> {
-            //System.out.println("Employee Being Added: "+employeePayrollData.name);
+            System.out.println("Employee Being Added: "+employeePayrollData.name);
             this.addEmployeeToPayroll(employeePayrollData.name, employeePayrollData.department,  employeePayrollData.basic_pay, employeePayrollData.deductions, employeePayrollData.taxable_pay, employeePayrollData.tax, employeePayrollData.net_pay, employeePayrollData.startDate, employeePayrollData.gender);
-            //System.out.println("Employee Added: "+employeePayrollData.name);
+            System.out.println("Employee Added: "+employeePayrollData.name);
         });
-        //System.out.println(this.employeePayrollList);
+        System.out.println(this.employeePayrollList);
     }
 
     public void addEmployeesToPayrollWithThreads(List<EmployeePayrollData> employeePayrollDataList){
@@ -103,7 +103,7 @@ public class EmployeePayrollService {
         });
         while (employeeAdditionStatus.containsValue(false)){
             try {
-                Thread.sleep(10);
+                Thread.sleep(1000);
             }catch (InterruptedException e){}
         }
         System.out.println(employeePayrollDataList);

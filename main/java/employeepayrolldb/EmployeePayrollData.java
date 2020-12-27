@@ -47,7 +47,7 @@ public class EmployeePayrollData {
 
     @Override
     public int hashCode(){
-        return Objects.hash(id, name, basic_pay, startDate);
+        return Objects.hash(id, name, department, basic_pay, deductions,taxable_pay, tax, net_pay, startDate, gender);
     }
 
     @Override
