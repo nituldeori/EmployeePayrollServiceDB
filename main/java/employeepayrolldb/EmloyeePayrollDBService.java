@@ -175,6 +175,7 @@ public class EmloyeePayrollDBService {
         EmployeePayrollData employeePayrollData = null;
         try{
             connection = this.getConnection();
+            connection.setAutoCommit(false);
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -193,6 +194,12 @@ public class EmloyeePayrollDBService {
             employeePayrollData = new EmployeePayrollData(employeeId,name, salary, gender,start);
         } catch (SQLException e){
             e.printStackTrace();
+            try {
+                connection.rollback();
+                return employeePayrollData;
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
         try(Statement statement = connection.createStatement()){
             String sql = String.format("INSERT INTO payroll_details (employee_id, basic_pay, deductions, taxable_pay, tax, net_pay) VALUES "+
@@ -205,6 +212,24 @@ public class EmloyeePayrollDBService {
 
         } catch (SQLException e){
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        try {
+            connection.commit();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
         }
         return employeePayrollData;
 
